@@ -1,179 +1,101 @@
-UrbanMind 🌱
+# UrbanMind 🌱
+### A Digital Platform for Social Welfare, Donations, and Community Trust
 
-A Digital Platform for Social Welfare, Donations, and Community Trust
+**UrbanMind** is a full-stack web platform designed to connect Citizens, Volunteers, NGOs, and Administrators in a transparent and secure ecosystem. The platform simplifies complaint reporting, donation management, and real-time collaboration to solve civic issues.
 
-📌 Project Overview
+---
 
-UrbanMind is a full-stack web platform designed to connect donors, volunteers, NGOs, and administrators in a transparent and secure ecosystem.
-The platform simplifies donation management, user verification, and real-time notifications, ensuring trust, accountability, and smooth collaboration.
+## 🎯 The Problem
+* **Lack of Transparency:** Difficulty in tracking where donations and complaints go.
+* **Verification Gaps:** No centralized system to verify the authenticity of NGOs or volunteers.
+* **Delayed Action:** Communication silos between reporters and problem solvers.
 
-This project was developed as part of a CDAC academic project, focusing on real-world system design, RESTful APIs, and role-based access control.
+## 💡 The Solution
+* **Civic Reporting:** Citizens report issues (potholes, waste, etc.) which are then verified and assigned.
+* **Trust Ecosystem:** Administrative workflow to approve/reject NGO and Volunteer credentials.
+* **Real-Time Synergy:** Integrated chat and notification systems for immediate updates.
+* **Secure Funding:** Transparent donation tracking with goal-based project funding.
 
-🎯 Problem  
+---
 
-Lack of transparency in donation platforms
+## 🧱 Technical Architecture
+The system is built using a **Microservices Architecture** for high scalability and resilience.
 
-No centralized verification for NGOs and volunteers
+* **Frontend:** React.js (Tailwind CSS, Context API)
+* **Backend:** Spring Boot 3.x (Spring Cloud, Spring Security)
+* **Database:** PostgreSQL (Unified urbanmind schema)
+* **Service Discovery:** Netflix Eureka
+* **API Gateway:** Spring Cloud Gateway (Single Entry Point)
+* **Auth:** Stateless JWT-based Authentication
+* **Real-time:** WebSockets (STOMP) & Socket.io
 
-Poor tracking of donation history
+---
 
-Limited real-time communication between users
+## 👥 User Roles & Workflows
 
+### 🏛️ Admin
+* **Moderation:** Review and verify NGO/Volunteer applications.
+* **Management:** Oversee platform activity and user roles.
+* **Security:** Monitor system health via Dashboard.
 
-💡 Solution
+### 👤 Citizen (Reporter/Donor)
+* **Report:** Log civic problems with media attachments.
+* **Donate:** Fund specific projects to resolve reported issues.
+* **Track:** Real-time status updates on personal reports.
 
-UrbanMind solves these problems by providing:
+### 🤝 Volunteer / NGO
+* **Verification:** Submit documents (ID/Certification) for approval.
+* **Action:** "Pick Up" unassigned problems and coordinate solutions.
+* **Resolution:** Update project milestones and mark problems as "Resolved."
 
-Verified user ecosystem (Admins approve/reject requests)
+---
 
-Secure donation tracking with history
+## 🔐 Security Features
+* **Stateless Auth:** JWT tokens for secure, scalable session management.
+* **RBAC:** Role-Based Access Control at both Gateway and Service levels.
+* **Data Safety:** Validation at controller and service layers; SQL injection protection via JPA.
 
-Role-based dashboards
+---
 
-Notification system for real-time updates
+## 📂 Project Structure (Microservices)
 
-Scalable backend architecture
+Urbanmind-Project/
+├── urbanmind-gateway/       # Port 9000 (Entry point)
+├── eurekaserver/            # Port 8761 (Registry)
+├── urbanmind-auth/          # Core Business & User Identity
+├── UrbanChats/              # Real-time WebSocket Messaging
+├── donation-service/        # Payment & Notification Hub
+└── urbanmind-frontend/      # React Application
 
+🚀 How to Run
+Prerequisites
+JDK 17+
 
-🧱 System Architecture
+Node.js 18+
 
-Frontend: React (Role-based UI)
+PostgreSQL
 
-Backend: Spring Boot (REST APIs)
+Maven
 
-Database: MySQL
+Installation
+Clone the repository:
+git clone [https://github.com/vibhutichou/UrbanMind.git](https://github.com/vibhutichou/UrbanMind.git)
+cd urbanmind
+Start Infrastructure:
 
-Authentication: JWT-based authentication
+Run EurekaServerApplication (Port 8761).
 
-Communication: REST + Notifications
+Run GatewayApplication (Port 9000).
 
-Architecture Style: Layered (Controller → Service → Repository)
+Start Services:
 
+Run Auth, Chat, and Donation services using mvn spring-boot:run.
 
-👥 User Roles
-
-Admin
-
-Verify NGOs & volunteers
-
-Approve or reject requests
-
-Monitor platform activity
-
-Donor
-
-Make donations
-
-View donation history
-
-Receive notifications
-
-Volunteer / NGO
-
-Submit verification request
-
-
-Access role-specific features after approval
-
-✨ Key Features
-
-🔐 JWT Authentication & Authorization
-
-✅ Admin-controlled verification workflow
-
-💸 Donation management with history
-
-🔔 Notification system
-
-📊 Role-based dashboards
-
-🌐 RESTful API design
-
-🔄 Verification Workflow
-
-
-User submits verification request
-
-Admin reviews details
-
-Admin approves or rejects
-
-System updates user role and status
-
-Notification sent to user
-
-
-🧪 API Highlights
-
-User authentication APIs
-
-Verification request APIs
-
-Donation APIs
-
-Notification APIs
-
-All APIs follow REST principles with proper HTTP status codes.
-
-
-🔐 Security
-
-JWT tokens for stateless authentication
-
-Role-based access control
-
-Protected admin endpoints
-
-Validation at controller and service layers
-
-
-📂 Project Structure (Backend)
-controller/
-service/
-repository/
-dto/
-entity/
-exception/
-config/
-
-
-🚀 How to Run the Project
-Backend
-mvn clean install
-mvn spring-boot:run
-
-Frontend
+Start Frontend:
+cd urbanmind-frontend
 npm install
 npm start
 
-
-🧠 What I Learned ?
-
-Designing RESTful APIs
-
-JWT authentication & authorization
-
-Spring Boot layered architecture
-
-Role-based access control
-
-Real-world Git workflow
-
-Debugging production-level issues
-
-
-📌 Future Enhancements
-
-Payment gateway integration
-
-Analytics dashboard
-
-Email & SMS notifications
-
-Cloud deployment
-
-
 👩‍💻 Author
-
 Vibhuti Choudhary
 CDAC Project | Full-Stack Java Developer
